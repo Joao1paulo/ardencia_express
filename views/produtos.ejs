@@ -1,0 +1,42 @@
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
+
+
+<div class="container p-5">
+    <div class="card">
+        <div class="card-header" style="font-family:Poetsen One, sans-serif; background-color: #FFF8F1; color: #F8405E; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+            <h1>Produtos disponíveis</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless table-hover" style="width: 100%; border-collapse: collapse;">
+                <thead class="table" style="font-family: Nunito, sans-serif; font-size: 130%;">
+                    <tr>
+                        <th id="titulotabela" class="text-center" style="border-top-left-radius: 10px; vertical-align: middle;">Imagem:</th>
+                        <th id="titulotabela" style="vertical-align: middle;">Nome:</th>
+                        <th id="titulotabela" style="vertical-align: middle;">Preço:</th>
+                        <th id="titulotabela" style="border-top-right-radius: 10px; vertical-align: middle;">Categoria:</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: Nunito, sans-serif;">
+                    <!-- Chamando o array de objetos -->
+                    <% produtos.forEach(produto => { %>
+                        <tr id="textos" style="font-size: 110%;">
+                            <td style="text-align: center; vertical-align: middle; height: 150px; padding: 10px;">
+                                <img src="<%= produto.imagem %>" alt="<%= produto.nome %>" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
+                            </td>
+                            <td style="vertical-align: middle; padding: 10px;"><%= produto.nome %></td>
+                            <td style="vertical-align: middle;  padding: 10px;"><%= produto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+                            <td style="vertical-align: middle; height: 150px; padding: 10px;"><%= produto.categoria %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<%- include('partials/footer.ejs') %>

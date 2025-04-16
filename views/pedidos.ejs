@@ -1,0 +1,36 @@
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
+
+
+<div class="container p-5">
+    <div class="card">
+        <div class="card-header" style="font-family: Poetsen One, sans-serif; background-color: #FFF8F1; color: #F8405E; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); ">
+            <h1>Pedidos realizados</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless table-hover">
+                <thead class="table" style="font-family: Nunito, sans-serif; font-size: 110%;">
+                    <tr>
+                        <th id="titulotabela" style="border-top-left-radius: 10px;">Número do Pedido:</th>
+                        <th id="titulotabela">Produto:</th>
+                        <th id="titulotabela">Valor:</th>
+                        <th id="titulotabela" style="border-top-right-radius: 10px;">Cliente:</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: Nunito, sans-serif;">
+                    <% pedidos.forEach(pedido => { %>
+                        <tr style="font-size: 110%;">
+                            <td style="padding-top: 2%;"><%= pedido.numeroPedido %></td>
+                            <td style="padding-top: 2%;"><%= pedido.produto %></td>
+                            <td style="padding-top: 2%;"><%= pedido.valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) %></td>
+                            <td style="padding-top: 2%;"><%= pedido.cliente %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

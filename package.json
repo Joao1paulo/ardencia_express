@@ -1,0 +1,28 @@
+{
+  "name": "lojapimenta",
+  "version": "1.0.0",
+  "description": "Um sistema web simples desenvolvido com JavaScript, EJS e Bootstrap, voltado para o cadastro e exibição de produtos. O projeto possui uma temática exótica e apimentada, inspirado em uma loja de venda de pimentas especiais.",
+  "homepage": "https://github.com/Joao1paulo/ArdenciaExpress#readme",
+  "bugs": {
+    "url": "https://github.com/Joao1paulo/ArdenciaExpress/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joao1paulo/ArdenciaExpress.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "node": "^23.11.0",
+    "nodemon": "^3.1.9"
+  }
+}

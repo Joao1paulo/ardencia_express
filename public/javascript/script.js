@@ -1,0 +1,1 @@
+// alert("Se você está lendo o isso, o JavaScript está funcionando com sucesso!");
