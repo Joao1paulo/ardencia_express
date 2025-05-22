@@ -1,49 +1,78 @@
 import express from "express";
-// Carregando o método do express para gerenciamento de rotas
+import Cliente from "../model/cliente.js";
 const router = express.Router();
 
-// ROTA DE PRODUTOS
-router.get("/clientes", (req, res) => {
+    // ROTA CLIENTES
+    router.get("/clientes", function(req, res){
+    Cliente.findAll().then(clientes => {
+    res.render("clientes", {
+    clientes: clientes
+    })
+    })
+    });
+    
 
-  //Array de objetos
-  const clientes = [
-    {
-      nome: "João Silva",
-      cpf: "123.456.789-00",
-      endereco: "Rua das Flores, 123 - Registro/SP"
-    },
-    {
-      nome: "Maria Oliveira", 
-      cpf: "987.654.321-00",
-      endereco: "Av. Brasil, 456 - Iguape/SP"
-    },
-    {
-      nome: "Carlos Souza",
-      cpf: "321.654.987-00",
-      endereco: "Rua do Comércio, 789 - Pariquera-Açu/SP"
-    },
-    {
-      nome: "Ana Paula",
-      cpf: "456.123.789-00",
-      endereco: "Travessa Central, 101 - Sete Barras/SP"
-    },
-    {
-      nome: "Ricardo Almeida",
-      cpf: "789.321.456-00",
-      endereco: "Rua dos Ipês, 202 - Eldorado/SP"
+    // ROTA DE CADASTRO DE CLIENTES
+    router.post("/clientes/new", (req, res) => {
+    const nome = req.body.nome
+    const cpf = req.body.cpf
+    const endereco = req.body.endereco
+    Cliente.create({
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+    }).then(() => {
+    res.redirect("/clientes")
+    })
+    });
+
+    // ROTA DE EXCLUSÃO DE CLIENTES
+    router.get("/clientes/delete/:id", (req, res) => {
+    const id = req.params.id
+    Cliente.destroy({
+    where: {
+    id : id
     }
-  ];
+    }).then(() => {
+    res.redirect("/clientes")
+    })
+    });
+
+    // ROTA DE EDIÇÃO DE CLIENTES
+    router.get("/clientes/edit/:id", (req, res) => {
+    const id = req.params.id
+    Cliente.findByPk(id).then(function(cliente) {
+    res.render("clienteEdit", {
+    cliente : cliente
+    })
+    })
+    });
+
+    // ROTA DE ALTERAÇÃO DE CLIENTES
+    router.post("/clientes/update/:id", (req, res) => {
+    const id = req.body.id
+    const nome = req.body.nome
+    const cpf = req.body.cpf
+    const endereco = req.body.endereco
+    Cliente.update(
+    {
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+    },
+    {where: {id : id}}
+    ).then(() => {
+    res.redirect("/clientes")
+    })
+    })
+
+    
+
+    
 
 
-  res.render("clientes", {
-    // Enviando variáveis produto para a página
-    clientes: clientes,
-  });
 
-});
-
-// Exportando o módulo
 export default router;
-// pra mais um de um módulo - export default { teste1, exemplo1 };
+
 
 

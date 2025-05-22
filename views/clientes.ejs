@@ -3,6 +3,74 @@
 
 
 <div class="container p-5">
+  <div class="card">
+    <div class="card-header" style="font-family: Poetsen One, sans-serif; background-color: #FFF8F1; color: #F8405E; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+      <h1>Cadastrar cliente</h1>
+    </div>
+    <div class="card-body" style="font-family: Nunito, sans-serif; font-size: 110%;">
+      <form method="POST" action="/clientes/new">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome do cliente:</label>
+          <input type="text" name="nome" id="nome" placeholder="Insira o nome do cliente" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="cpf" class="form-label">CPF do cliente:</label>
+          <input type="text" name="cpf" id="cpf" placeholder="Insira o CPF do cliente" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="endereco" class="form-label">Endereço do cliente:</label>
+          <input type="text" name="endereco" id="endereco" placeholder="Insira o endereço do cliente" class="form-control" required>
+        </div>
+
+        <button class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container p-5">
+    <div class="card">
+      <div class="card-header" style="font-family:Poetsen One, sans-serif; background-color: #FFF8F1; color: #F8405E; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+        <h1>Visualizar clientes</h1>
+      </div>
+      <div class="card-body">
+        <table class="table table-borderless table-hover">
+          <thead class="table" style="font-family: Nunito, sans-serif; font-size: 130%;">
+            <tr>
+              <th id="titulotabela" style="border-top-left-radius: 10px;">Nome:</th>
+              <th id="titulotabela">CPF:</th>
+              <th id="titulotabela">Endereço:</th>
+              <th id="titulotabela" colspan="2" style="text-align: center; border-top-right-radius: 10px;">Ações:</th>
+            </tr>
+          </thead>
+          <tbody style="font-family: Nunito, sans-serif;">
+            <% clientes.forEach(cliente => { %>
+              <tr style="font-size: 110%;">
+                <td style="padding-top: 2%;"><%= cliente.nome %></td>
+                <td style="padding-top: 2%;"><%= cliente.cpf %></td>
+                <td style="padding-top: 2%;"><%= cliente.endereco %></td>
+                <td style="padding-top: 2%; text-align: center;">
+                  <a class="btn btn-warning btn-sm" href="/clientes/edit/<%= cliente.id %>">Editar</a>
+                </td>
+                <td style="padding-top: 2%; text-align: center;">
+                  <a class="btn btn-danger btn-sm" href="/clientes/delete/<%= cliente.id %>">Excluir</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+<div class="container p-5">
     <div class="card">
         <div class="card-header" style="font-family:Poetsen One, sans-serif; background-color: #FFF8F1; color: #F8405E; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
             <h1>Clientes cadastrados</h1>
@@ -30,8 +98,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 
