@@ -18,10 +18,6 @@ Com uma temática **exótica e apimentada**, este projeto foi inspirado em uma l
 - EJS  
 - Bootstrap  
 
-## 🎯 Objetivo
-
-O projeto foi idealizado como uma aplicação prática e leve, perfeita para estudos, testes ou como ponto de partida para sistemas de gerenciamento de produtos com identidade visual marcante.
-
 ## 📸 Preview
 
 *Adicione aqui prints da interface, se possível, para tornar o projeto ainda mais atrativo visualmente.*
