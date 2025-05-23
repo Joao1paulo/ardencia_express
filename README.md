@@ -1,6 +1,6 @@
-# 🌶️ Pimenta Express
+# 🌶️ Ardência Express
 
-**Pimenta Express** é um sistema web simples e funcional, desenvolvido com **JavaScript**, **EJS** e **Bootstrap**, voltado para o **cadastro e exibição de produtos**.  
+**Ardência Express** é um sistema web simples e funcional, desenvolvido com **JavaScript**, **EJS** e **Bootstrap**, voltado para o **cadastro e exibição de produtos**.  
 Com uma temática **exótica e apimentada**, este projeto foi inspirado em uma loja especializada na venda de pimentas especiais — para quem gosta de sabor com intensidade!
 
 ## 🔥 Funcionalidades
